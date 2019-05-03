@@ -29,9 +29,7 @@ import tensorflow as tf
 import argparse
 import sys
 from gpiozero import LED
-
-
-    led = LED(17)
+led = LED(17)
 
 # Set up camera constants
 IM_WIDTH = 1280
