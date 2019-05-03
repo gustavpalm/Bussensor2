@@ -1,10 +1,4 @@
-Python 3.5.3 (default, Sep 27 2018, 17:25:39) 
-[GCC 6.3.0 20170516] on linux
-Type "copyright", "credits" or "license()" for more information.
->>> Python 3.5.3 (default, Sep 27 2018, 17:25:39) 
-[GCC 6.3.0 20170516] on linux
-Type "copyright", "credits" or "license()" for more information.
->>> ######## Raspberry Pi Pet Detector Camera using TensorFlow Object Detection API #########
+######## Raspberry Pi Pet Detector Camera using TensorFlow Object Detection API #########
 #
 # Author: Evan Juras
 # Date: 10/15/18
@@ -34,6 +28,10 @@ from picamera import PiCamera
 import tensorflow as tf
 import argparse
 import sys
+from gpiozero import LED
+
+
+    led = LED(17)
 
 # Set up camera constants
 IM_WIDTH = 1280
@@ -129,10 +127,7 @@ def pet_detector(frame):
     global detected_inside, detected_outside
     global inside_counter, outside_counter
     global pause, pause_counter
-    from gpiozero import LED
-    from time import sleep
-
-    led = LED(17)
+    
     
     frame_expanded = np.expand_dims(frame, axis=0)
 
